@@ -16,7 +16,6 @@ SET(BULLET_BUILD_DIR ~/bullet3/bullet_build CACHE STRING "Some other user-specif
 SET(BULLET_ROOT_DIR /usr/local/ CACHE STRING "Bullet install position")
 
 
-FIND_PACKAGE(Boost COMPONENTS program_options filesystem REQUIRED)
 FIND_PACKAGE(OpenGL)
 
 
@@ -28,7 +27,6 @@ INCLUDE_DIRECTORIES(
         ${BULLET_SOURCE_DIR}/examples/ThirdPartyLibs/Glew
         ${BULLET_SOURCE_DIR}/examples/ThirdPartyLibs
         ${BULLET_SOURCE_DIR}/examples/OpenGLWindow
-        ${Boost_INCLUDE_DIR}
 )
 
 
@@ -101,9 +99,6 @@ ADD_EXECUTABLE(SpringConstraintDemo
     ${SOURCES}
     ${CMAKE_SOURCE_DIR}/src/main_opengl.cpp
 )
-
-TARGET_LINK_LIBRARIES(SpringConstraintDemo ${Boost_LIBRARIES})
-
 
 IF (INTERNAL_ADD_POSTFIX_EXECUTABLE_NAMES)
                         SET_TARGET_PROPERTIES(SpringConstraintDemo PROPERTIES  DEBUG_POSTFIX "_Debug")
